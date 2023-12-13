@@ -1,14 +1,16 @@
+
 namespace OpenClose
 {
-    public class EmployeeFullTime
+    public class EmployeeFullTime : Employee
     {
-        public string Fullname { get; set; }
-        public int HoursWorked { get; set; }
-
-        public EmployeeFullTime(string fullname, int hoursWorked)
+        private const decimal hourValue = 30000M;
+        public EmployeeFullTime(string fullname, int hoursWorked) : base(fullname, hoursWorked)
         {
-            Fullname = fullname;
-            HoursWorked = hoursWorked;
-        }  
+        }
+
+        public override decimal CalculateSalaryMonthly()
+        {   
+            return hourValue * HoursWorked;
+        }
     }
 }
