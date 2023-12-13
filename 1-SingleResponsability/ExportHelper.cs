@@ -7,18 +7,7 @@ namespace SingleResponsability
 {
     public class ExportHelper
     {
-        public void ExportStudents(IEnumerable<Student> students) 
-        {
-            StringBuilder sb = new();
-            sb.AppendLine("Id;Fullname;Grades");
-            foreach (var item in students)
-            {
-                sb.AppendLine($"{item.Id};{item.Fullname};{string.Join("|", item.Grades)}");
-            }
-            File.WriteAllText(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Students.csv"), sb.ToString(), Encoding.Unicode);
-        }
-
-        public void ExportGeneric<T>(IEnumerable<T> collection)
+        public void Export<T>(IEnumerable<T> collection)
         {
             var props = typeof(T).GetProperties();
 
