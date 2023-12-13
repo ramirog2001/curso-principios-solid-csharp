@@ -3,6 +3,6 @@
 StudentRepository studentRepository = new();
 ExportHelper exportHelper = new();
 
-exportHelper.ExportStudents(studentRepository.GetAll());
+exportHelper.ExportGeneric(studentRepository.GetAll());
 
 Console.WriteLine("Proceso Completado");
